@@ -1,0 +1,21 @@
+version: '3.8'
+services:
+  blue-redis:
+    image: redis:6-alpine
+    restart: always
+    ports:
+      - '6385:6379'
+    volumes:
+      - blue-volume:/data
+  green-redis:
+    image: redis:6-alpine
+    restart: always
+    ports:
+      - '6386:6379'
+    volumes:
+      - green-volume:/data
+volumes:
+  blue-volume:
+    driver: local
+  green-volume:
+    driver: local
